@@ -15,7 +15,7 @@ namespace BotSBS
     {
         public static string weather2h;
         public static string weather7h;
-        public static string weatherNow;
+        public static string weatherNow; 
 
         public static string getWeatherData(string type)
         {
