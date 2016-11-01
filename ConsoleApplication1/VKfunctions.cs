@@ -156,6 +156,12 @@ namespace VKfunctions
             }
         }
 
+        public static string getFullNameByID(long id)
+        {
+            VkApi vkBot = authVK();
+            return vkBot.Users.Get(id).LastName.ToString() + " " + vkBot.Users.Get(id).FirstName.ToString();
+        }
+
         public static async void sendNews(VkNet.Model.Message msg)
         {
             VkApi vkBot = authVK();

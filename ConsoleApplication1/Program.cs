@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TMfunctions;
 using VKfunctions;
+using Lottery;
 
 namespace BotSBS
 {
@@ -83,11 +84,15 @@ namespace BotSBS
             Console.OutputEncoding = Encoding.GetEncoding("Windows-1251");
             debugLine(" Bot has been started", ConsoleColor.Cyan);
             UpdateConsoleName();
-            getWeatherAsync();
-            sendScheduleInTime();
-            TM.getNewMessages();
-            VK.getNewMessages();
-            VK.getNewPosts();
+            var dat = Lot.getPointsList();
+            Lot.addPointsByID(dat, 40411826, 1);
+            Console.WriteLine(Lot.getTopElements(dat, 5));
+            //Lot.setPointsList(dat);
+            //getWeatherAsync();
+            //sendScheduleInTime();
+            //TM.getNewMessages();
+            //VK.getNewMessages();
+            //VK.getNewPosts();
             Console.ReadKey();
         }
         public static async void getWeatherAsync()

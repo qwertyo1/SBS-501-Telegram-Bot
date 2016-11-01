@@ -1,4 +1,6 @@
-﻿public class Pr1
+﻿using System.Collections.Generic;
+
+public class Pr1
 {
     public string prnum { get; set; }
     public string prname { get; set; }
@@ -660,4 +662,10 @@ public class AuthInfo
     public int vkAppId;
 
     public string tmToken;
+}
+
+public class LotteryElement
+{
+    public long id { get; set; }
+    public int points { get; set; }
 }
