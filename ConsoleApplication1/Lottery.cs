@@ -27,8 +27,9 @@ namespace Lottery
             writer.Close();
         }
 
-        public static void addPointsByID(List<LotteryElement> dataList, long ID, int points)
+        public static void addPointsByID(long ID, int points)
         {
+            var dataList = getPointsList();
             try
             {
                 dataList.Find(item => item.id == ID).points += points;
@@ -41,8 +42,9 @@ namespace Lottery
                 setPointsList(dataList);
             }
         }
-        public static LotteryElement getElementByID(List<LotteryElement> dataList, long ID)
+        public static LotteryElement getElementByID(long ID)
         {
+            var dataList = getPointsList();
             try
             {
                 return dataList.Find(item => item.id == ID);
@@ -53,8 +55,9 @@ namespace Lottery
                 return new LotteryElement { id=0, points=0 };
             }
         }
-        public static string getTopElements(List<LotteryElement> dataList, int count)
+        public static string getTopElements(int count)
         {
+            var dataList = getPointsList();
             dataList.Sort(delegate (LotteryElement x, LotteryElement y)
             {
                 return -x.points.CompareTo(y.points);

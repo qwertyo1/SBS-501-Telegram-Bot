@@ -84,15 +84,11 @@ namespace BotSBS
             Console.OutputEncoding = Encoding.GetEncoding("Windows-1251");
             debugLine(" Bot has been started", ConsoleColor.Cyan);
             UpdateConsoleName();
-            var dat = Lot.getPointsList();
-            Lot.addPointsByID(dat, 40411826, 1);
-            Console.WriteLine(Lot.getTopElements(dat, 5));
-            //Lot.setPointsList(dat);
-            //getWeatherAsync();
-            //sendScheduleInTime();
-            //TM.getNewMessages();
-            //VK.getNewMessages();
-            //VK.getNewPosts();
+            getWeatherAsync();
+            sendScheduleInTime();
+            TM.getNewMessages();
+            VK.getNewMessages();
+            VK.getNewPosts();
             Console.ReadKey();
         }
         public static async void getWeatherAsync()

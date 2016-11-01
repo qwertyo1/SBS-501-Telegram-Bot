@@ -1,5 +1,6 @@
 ﻿using ForecastIOPortable;
 using ForecastIOPortable.Models;
+using Lottery;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -68,7 +69,9 @@ namespace VKfunctions
                             chatId = (long)msg.ChatId;
                             toUser = false;
                         }
-
+                        //lottery sector
+                        if (!toUser) Lot.addPointsByID((long)msg.UserId, 1);
+                        //
                         switch (msg.Body.Remove(0, 1).ToLower())
                         {
                             case "week": sendSchedule(chatId, "bothWeeks", msg.Id, false, toUser); break;
@@ -88,6 +91,7 @@ namespace VKfunctions
                             case "help": sendMessage(chatId, "Список команд:\n/сегодня - расписание на сегодня\n/завтра - расписание на завтра\n/неделя - расписание на текущую неделю\n/четная - расписание на четную неделю\n/нечетная - расписание на нечетную неделю\n/погода - прогноз погоды\n/новость - последняя новость из нашей группы", msg.Id, toUser); break;
                             case "cmds": sendMessage(chatId, "Список команд:\n/сегодня - расписание на сегодня\n/завтра - расписание на завтра\n/неделя - расписание на текущую неделю\n/четная - расписание на четную неделю\n/нечетная - расписание на нечетную неделю\n/погода - прогноз погоды\n/новость - последняя новость из нашей группы", msg.Id, toUser); break;
                             case "помощь": sendMessage(chatId, "Список команд:\n/сегодня - расписание на сегодня\n/завтра - расписание на завтра\n/неделя - расписание на текущую неделю\n/четная - расписание на четную неделю\n/нечетная - расписание на нечетную неделю\n/погода - прогноз погоды\n/новость - последняя новость из нашей группы", msg.Id, toUser); break;
+                            case "top": sendMessage(chatId, Lot.getTopElements(5), msg.Id, toUser); break;
                             default: catchTheText(chatId, msg); break;
                         }
                     }
