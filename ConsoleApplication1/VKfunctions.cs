@@ -1,5 +1,5 @@
-﻿using ForecastIOPortable;
-using ForecastIOPortable.Models;
+﻿using DarkSkyApi;
+using DarkSkyApi.Models;
 using Lottery;
 using Newtonsoft.Json;
 using System;
@@ -252,25 +252,31 @@ namespace VKfunctions
             {
                 chatid += 2000000000;
             }
-
-            var client = new ForecastApi("1faf41da033a5161112cd61890341d1e");
-            Forecast result = await client.GetWeatherDataAsync(54.966047, 73.2871069, Unit.SI, Language.Russian);
-            var message = "Сейчас: " + (Math.Round(result.Currently.Temperature, 0)).ToString() + "°С " + result.Currently.Summary;
-            message += "\n Через 2 ч. будет " + (Math.Round(result.Hourly.Hours[2].Temperature, 0)).ToString() + "°С | " + result.Hourly.Hours[2].Summary;
-            message += "\n Через 4 ч. будет " + (Math.Round(result.Hourly.Hours[4].Temperature, 0)).ToString() + "°С | " + result.Hourly.Hours[4].Summary;
-            message += "\n Через 6 ч. будет " + (Math.Round(result.Hourly.Hours[6].Temperature, 0)).ToString() + "°С | " + result.Hourly.Hours[6].Summary;
-            message += "\n Через 8 ч. будет " + (Math.Round(result.Hourly.Hours[8].Temperature, 0)).ToString() + "°С | " + result.Hourly.Hours[8].Summary;
-            message += "\n Завтра днем будет " + (Math.Round(result.Daily.Days[1].MaxTemperature, 0)).ToString() + "°С | " + result.Daily.Days[1].Summary;
-
-            long[] msgId = { (long)messageId };
             try
             {
-                VkApi vkBot = authVK();
-                vkBot.Messages.Send(new MessagesSendParams { PeerId = chatid, Message = message, ForwardMessages = msgId });
-                BotSBS.BODY.debugLine("[VK] " + "Weather has been sent", ConsoleColor.DarkGreen);
-                await Task.Delay(2000);
-            }
-            catch (Exception ex)
+                var client = new DarkSkyService("1faf41da033a5161112cd61890341d1e");
+                Forecast result = await client.GetWeatherDataAsync(54.966047, 73.2871069, Unit.SI, Language.Russian);
+                var message = "Сейчас: " + (Math.Round(result.Currently.Temperature, 0)).ToString() + "°С " + result.Currently.Summary;
+                message += "\n Через 2 ч. будет " + (Math.Round(result.Hourly.Hours[2].Temperature, 0)).ToString() + "°С | " + result.Hourly.Hours[2].Summary;
+                message += "\n Через 4 ч. будет " + (Math.Round(result.Hourly.Hours[4].Temperature, 0)).ToString() + "°С | " + result.Hourly.Hours[4].Summary;
+                message += "\n Через 6 ч. будет " + (Math.Round(result.Hourly.Hours[6].Temperature, 0)).ToString() + "°С | " + result.Hourly.Hours[6].Summary;
+                message += "\n Через 8 ч. будет " + (Math.Round(result.Hourly.Hours[8].Temperature, 0)).ToString() + "°С | " + result.Hourly.Hours[8].Summary;
+                message += "\n Завтра днем будет " + (Math.Round(result.Daily.Days[1].MaxTemperature, 0)).ToString() + "°С | " + result.Daily.Days[1].Summary;
+
+                long[] msgId = { (long)messageId };
+                try
+                {
+                    VkApi vkBot = authVK();
+                    vkBot.Messages.Send(new MessagesSendParams { PeerId = chatid, Message = message, ForwardMessages = msgId });
+                    BotSBS.BODY.debugLine("[VK] " + "Weather has been sent", ConsoleColor.DarkGreen);
+                    await Task.Delay(2000);
+                }
+                catch (Exception ex)
+                {
+                    BotSBS.BODY.debugLine("[VK][sendWeather] " + ex.Message, ConsoleColor.DarkRed);
+                    await Task.Delay(3000);
+                }
+            } catch (Exception ex)
             {
                 BotSBS.BODY.debugLine("[VK][sendWeather] " + ex.Message, ConsoleColor.DarkRed);
                 await Task.Delay(3000);

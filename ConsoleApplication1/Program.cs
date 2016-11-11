@@ -1,14 +1,12 @@
-﻿using ForecastIOPortable;
-using ForecastIOPortable.Models;
+﻿using DarkSkyApi;
+using DarkSkyApi.Models;
 using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using TMfunctions;
 using VKfunctions;
-using Lottery;
 
 namespace BotSBS
 {
@@ -95,11 +93,18 @@ namespace BotSBS
         {
             while (true)
             {
-                var client = new ForecastApi("1faf41da033a5161112cd61890341d1e");
-                Forecast result = await client.GetWeatherDataAsync(54.966047, 73.2871069, Unit.SI, Language.Russian);
-                weatherNow = (Math.Round(result.Currently.Temperature, 0)).ToString() + "°С " + result.Currently.Summary;
-                weather2h = (Math.Round(result.Hourly.Hours[2].Temperature, 0)).ToString() + "°С | " + result.Hourly.Hours[2].Summary;
-                weather7h = (Math.Round(result.Hourly.Hours[7].Temperature, 0)).ToString() + "°С | " + result.Hourly.Hours[7].Summary;
+                try
+                {
+                    var client = new DarkSkyService("1faf41da033a5161112cd61890341d1e");
+                    Forecast result = await client.GetWeatherDataAsync(54.966047, 73.2871069, Unit.SI, Language.Russian);
+                    weatherNow = (Math.Round(result.Currently.Temperature, 0)).ToString() + "°С " + result.Currently.Summary;
+                    weather2h = (Math.Round(result.Hourly.Hours[2].Temperature, 0)).ToString() + "°С | " + result.Hourly.Hours[2].Summary;
+                    weather7h = (Math.Round(result.Hourly.Hours[7].Temperature, 0)).ToString() + "°С | " + result.Hourly.Hours[7].Summary;
+                } catch (Exception ex)
+                {
+                    debugLine("[MAIN][getWeatherAsync] " + ex.Message, ConsoleColor.DarkRed);
+                    await Task.Delay(120000);
+                }
                 await Task.Delay(1200000); // 20 min
             }
         }
@@ -140,7 +145,7 @@ namespace BotSBS
                 catch (Exception ex)
                 {
                     debugLine("[TM / VK][sendScheduleInTime] " + ex.Message, ConsoleColor.DarkRed);
-                    Thread.Sleep(15000);
+                    await Task.Delay(15000);
                 }
             }
         }

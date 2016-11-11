@@ -54,8 +54,8 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ForecastPCL, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ForecastIOPortable.2.6.0\lib\portable45-net45+win8+wp8+wpa81\ForecastPCL.dll</HintPath>
+    <Reference Include="DarkSkyApi, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DarkSkyApi.3.0.0\lib\portable45-net45+win8+wp8+wpa81\DarkSkyApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
