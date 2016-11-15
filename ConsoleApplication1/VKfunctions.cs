@@ -61,38 +61,41 @@ namespace VKfunctions
                     foreach (var msg in updinfVK.Messages)
                     {
                         var userInfo = vkBot.Users.Get((long)msg.UserId);
-                        BotSBS.BODY.debugLine("[VK] " + userInfo.FirstName + " " + userInfo.LastName + ": " + msg.Body, ConsoleColor.White);
-                        long chatId = (long)msg.UserId;
-                        bool toUser = true;
-                        if (msg.ChatId != null)
+                        if (msg.Body.Length != 0)
                         {
-                            chatId = (long)msg.ChatId;
-                            toUser = false;
-                        }
-                        //lottery sector
-                        if (!toUser) Lot.addPointsByID((long)msg.UserId, 1);
-                        //
-                        switch (msg.Body.Remove(0, 1).ToLower())
-                        {
-                            case "week": sendSchedule(chatId, "bothWeeks", msg.Id, false, toUser); break;
-                            case "неделя": sendSchedule(chatId, "bothWeeks", msg.Id, false, toUser); break;
-                            case "dr": sendMessage(chatId, "Дрисня", msg.Id, toUser); break;
-                            case "др": sendMessage(chatId, "Дрисня", msg.Id, toUser); break;
-                            case "evenweek": sendSchedule(chatId, "evenWeek", msg.Id, false, toUser); break;
-                            case "четная": sendSchedule(chatId, "evenWeek", msg.Id, false, toUser); break;
-                            case "oddweek": sendSchedule(chatId, "oddWeek", msg.Id, false, toUser); break;
-                            case "нечетная": sendSchedule(chatId, "oddWeek", msg.Id, false, toUser); break;
-                            case "tomorrow": sendSchedule(chatId, "tomorrow", msg.Id, false, toUser); break;
-                            case "завтра": sendSchedule(chatId, "tomorrow", msg.Id, false, toUser); break;
-                            case "today": sendSchedule(chatId, "today", msg.Id, false, toUser); break;
-                            case "сегодня": sendSchedule(chatId, "today", msg.Id, false, toUser); break;
-                            case "погода": sendWeather(chatId, msg.Id, toUser); break;
-                            case "новость": sendNews(msg); break;
-                            case "help": sendMessage(chatId, "Список команд:\n/сегодня - расписание на сегодня\n/завтра - расписание на завтра\n/неделя - расписание на текущую неделю\n/четная - расписание на четную неделю\n/нечетная - расписание на нечетную неделю\n/погода - прогноз погоды\n/новость - последняя новость из нашей группы", msg.Id, toUser); break;
-                            case "cmds": sendMessage(chatId, "Список команд:\n/сегодня - расписание на сегодня\n/завтра - расписание на завтра\n/неделя - расписание на текущую неделю\n/четная - расписание на четную неделю\n/нечетная - расписание на нечетную неделю\n/погода - прогноз погоды\n/новость - последняя новость из нашей группы", msg.Id, toUser); break;
-                            case "помощь": sendMessage(chatId, "Список команд:\n/сегодня - расписание на сегодня\n/завтра - расписание на завтра\n/неделя - расписание на текущую неделю\n/четная - расписание на четную неделю\n/нечетная - расписание на нечетную неделю\n/погода - прогноз погоды\n/новость - последняя новость из нашей группы", msg.Id, toUser); break;
-                            case "top": sendMessage(chatId, Lot.getTopElements(5), msg.Id, toUser); break;
-                            default: catchTheText(chatId, msg); break;
+                            BotSBS.BODY.debugLine("[VK] " + userInfo.FirstName + " " + userInfo.LastName + ": " + msg.Body, ConsoleColor.White);
+                            long chatId = (long)msg.UserId;
+                            bool toUser = true;
+                            if (msg.ChatId != null)
+                            {
+                                chatId = (long)msg.ChatId;
+                                toUser = false;
+                            }
+                            //lottery sector
+                            if (!toUser) Lot.addPointsByID((long)msg.UserId, (ulong)msg.Body.Length);
+                            //
+                            switch (msg.Body.Remove(0, 1).ToLower())
+                            {
+                                case "week": sendSchedule(chatId, "bothWeeks", msg.Id, false, toUser); break;
+                                case "неделя": sendSchedule(chatId, "bothWeeks", msg.Id, false, toUser); break;
+                                case "dr": sendMessage(chatId, "Дрисня", msg.Id, toUser); break;
+                                case "др": sendMessage(chatId, "Дрисня", msg.Id, toUser); break;
+                                case "evenweek": sendSchedule(chatId, "evenWeek", msg.Id, false, toUser); break;
+                                case "четная": sendSchedule(chatId, "evenWeek", msg.Id, false, toUser); break;
+                                case "oddweek": sendSchedule(chatId, "oddWeek", msg.Id, false, toUser); break;
+                                case "нечетная": sendSchedule(chatId, "oddWeek", msg.Id, false, toUser); break;
+                                case "tomorrow": sendSchedule(chatId, "tomorrow", msg.Id, false, toUser); break;
+                                case "завтра": sendSchedule(chatId, "tomorrow", msg.Id, false, toUser); break;
+                                case "today": sendSchedule(chatId, "today", msg.Id, false, toUser); break;
+                                case "сегодня": sendSchedule(chatId, "today", msg.Id, false, toUser); break;
+                                case "погода": sendWeather(chatId, msg.Id, toUser); break;
+                                case "новость": sendNews(msg); break;
+                                case "help": sendMessage(chatId, "Список команд:\n/сегодня - расписание на сегодня\n/завтра - расписание на завтра\n/неделя - расписание на текущую неделю\n/четная - расписание на четную неделю\n/нечетная - расписание на нечетную неделю\n/погода - прогноз погоды\n/новость - последняя новость из нашей группы", msg.Id, toUser); break;
+                                case "cmds": sendMessage(chatId, "Список команд:\n/сегодня - расписание на сегодня\n/завтра - расписание на завтра\n/неделя - расписание на текущую неделю\n/четная - расписание на четную неделю\n/нечетная - расписание на нечетную неделю\n/погода - прогноз погоды\n/новость - последняя новость из нашей группы", msg.Id, toUser); break;
+                                case "помощь": sendMessage(chatId, "Список команд:\n/сегодня - расписание на сегодня\n/завтра - расписание на завтра\n/неделя - расписание на текущую неделю\n/четная - расписание на четную неделю\n/нечетная - расписание на нечетную неделю\n/погода - прогноз погоды\n/новость - последняя новость из нашей группы", msg.Id, toUser); break;
+                                case "top": sendMessage(chatId, Lot.getTopElements(5), msg.Id, toUser); break;
+                                default: catchTheText(chatId, msg); break;
+                            }
                         }
                     }
                     BotSBS.BODY.UpdateConsoleName();

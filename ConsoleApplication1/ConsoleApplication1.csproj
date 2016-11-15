@@ -110,7 +110,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="VkNet, Version=1.21.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\VkNet.1.24.0\lib\net40\VkNet.dll</HintPath>
+      <HintPath>..\packages\VkNet.1.25.0\lib\net40\VkNet.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

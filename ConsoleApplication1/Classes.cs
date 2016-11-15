@@ -667,5 +667,5 @@ public class AuthInfo
 public class LotteryElement
 {
     public long id { get; set; }
-    public int points { get; set; }
+    public ulong points { get; set; }
 }

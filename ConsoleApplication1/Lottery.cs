@@ -27,7 +27,7 @@ namespace Lottery
             writer.Close();
         }
 
-        public static void addPointsByID(long ID, int points)
+        public static void addPointsByID(long ID, ulong points)
         {
             var dataList = getPointsList();
             try
