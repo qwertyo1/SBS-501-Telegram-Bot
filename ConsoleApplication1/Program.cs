@@ -42,6 +42,9 @@ namespace BotSBS
                 case "ооо":
                     string[] ooo = { "МОЯ ОБОРООООООНАААААА", "Моя обороона", "МАЯ АБАРОООНААА!!1!!!1"};
                     return ooo[random.Next(0, ooo.Length)];
+                case "Вопрос к Боре":
+                    string[] question = { "Звезды говорят, что нет", "Конечно", "Кажется мне, что нет", "Сомневаюсь", "Нет, это все враки", "Я обратился в интернет с данным вопросом. Ответ - да", "Я обратился в интернет с данным вопросом. Ответ - нет", "Мой ответ - нет", "Мой ответ - да", "Найс вопрос, братан. Думаю, что да", "Найс вопрос, братан. Думаю, что нет", "Безусловно", "Я так не думаю", "Ой не дууумаю", "Скорее всего, да", "Скорее всего, нет", "Наверняка", "Маловероятно", "Очень маловероятно", "Вероятно, да", "А почему бы и нет?" };
+                    return question[random.Next(0, question.Length)];
                 default: return "Невозможно кинуть заумную фразу, они кончились";
             }
 
@@ -57,20 +60,12 @@ namespace BotSBS
         public static bool calculateRandom(double probability)
         {
             Random rnd = new Random();
-            if (rnd.NextDouble() <= probability)
-            {
-                return true;
-            }
-            return false;
+            return (rnd.NextDouble() <= probability) ? true :  false;
         }
 
         public static int isThatWeekEvenOrOdd()
         {
-            if (Math.Truncate((double)(DateTime.Now.DayOfYear+4)/7)%2==0)
-            {
-                return 1;
-            }
-            return 0;
+            return (Math.Truncate((double)(DateTime.Now.DayOfYear -31) / 7) % 2 == 0) ? 0 : 1;
         }
 
         public static void UpdateConsoleName()
@@ -125,11 +120,11 @@ namespace BotSBS
                             TM.sendSchedule(-144284477, "tomorrow", false);
                             TM.sendSchedule(-1001049809123, "tomorrow", false);
                             VK.sendSchedule(2, "tomorrow", 0, false, false);
+                            //VK.sendExams();
                             flag19 = 1;
                         }
                     }
                     else flag19 = 0;
-
                     if (DateTime.Now.Hour == 6)
                     {
                         if (flag6 == 0)
@@ -137,6 +132,7 @@ namespace BotSBS
                             TM.sendSchedule(-144284477, "today", true);
                             TM.sendSchedule(-1001049809123, "today", true);
                             VK.sendSchedule(2, "today", 0, true, false);
+                            //VK.sendExams();
                             flag6 = 1;
                         }
                     }

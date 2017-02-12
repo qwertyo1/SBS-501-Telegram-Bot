@@ -32,7 +32,7 @@ namespace VKfunctions
             Settings scope = Settings.All;     // Приложение имеет доступ ко всему
             try
             {
-                vkBot.Authorize(new ApiAuthParams { ApplicationId = (ulong)Auth.vkAppId, Login = Auth.vkLogin, Password = Auth.vkPass, Settings = scope });
+                vkBot.Authorize(new ApiAuthParams { ApplicationId = (ulong)Auth.vkAppId, Login = Auth.vkLogin, Password = Auth.vkPass, Settings = scope,  });
                 vkBot.Account.SetOnline(true);
             }
             catch (Exception ex)
@@ -94,6 +94,7 @@ namespace VKfunctions
                                 case "cmds": sendMessage(chatId, "Список команд:\n/сегодня - расписание на сегодня\n/завтра - расписание на завтра\n/неделя - расписание на текущую неделю\n/четная - расписание на четную неделю\n/нечетная - расписание на нечетную неделю\n/погода - прогноз погоды\n/новость - последняя новость из нашей группы", msg.Id, toUser); break;
                                 case "помощь": sendMessage(chatId, "Список команд:\n/сегодня - расписание на сегодня\n/завтра - расписание на завтра\n/неделя - расписание на текущую неделю\n/четная - расписание на четную неделю\n/нечетная - расписание на нечетную неделю\n/погода - прогноз погоды\n/новость - последняя новость из нашей группы", msg.Id, toUser); break;
                                 case "top": sendMessage(chatId, Lot.getTopElements(5), msg.Id, toUser); break;
+                                //case "сетка228": sendExams(); break;
                                 default: catchTheText(chatId, msg); break;
                             }
                         }
@@ -168,7 +169,27 @@ namespace VKfunctions
             VkApi vkBot = authVK();
             return vkBot.Users.Get(id).LastName.ToString() + " " + vkBot.Users.Get(id).FirstName.ToString();
         }
-
+        /*
+        public static async void sendExams()
+        {
+            VkApi vkBot = authVK();
+            try
+            {
+                DateTime study_start = new DateTime(2017, 2, 9);
+                string send = "";
+                if (DateTime.Now < study_start)
+                {
+                    send = "Количество дней начала учебы:\n" + (study_start - DateTime.Now).Days+1;
+                }
+                vkBot.Messages.Send(new MessagesSendParams { PeerId = 2000000002, Message = send });
+            }
+            catch (Exception ex)
+            {
+                BotSBS.BODY.debugLine("[VK][sendExams] " + ex.Message, ConsoleColor.DarkRed);
+                await Task.Delay(5000);
+            }
+        }
+        */
         public static async void sendNews(VkNet.Model.Message msg)
         {
             VkApi vkBot = authVK();
@@ -297,7 +318,11 @@ namespace VKfunctions
             }
             message.Body = message.Body.ToLower();
 
-            if (message.Body.Contains(" добре") || message.Body.StartsWith("добре") || message.Body.StartsWith("доброе") || message.Body.StartsWith(" доброе") || message.Body.StartsWith("добрый") || message.Body.StartsWith(" добрый"))
+            if (message.Body.StartsWith("борь, ") && message.Body.EndsWith("?"))
+            {
+                sendMessage(chatid, BotSBS.BODY.getRandomPhrase("Вопрос к Боре"), message.Id, toUser);
+            }
+            else if (message.Body.Contains(" добре") || message.Body.StartsWith("добре") || message.Body.StartsWith("доброе") || message.Body.StartsWith(" доброе") || message.Body.StartsWith("добрый") || message.Body.StartsWith(" добрый"))
             {
                 if (BotSBS.BODY.calculateRandom(0.8))
                 {

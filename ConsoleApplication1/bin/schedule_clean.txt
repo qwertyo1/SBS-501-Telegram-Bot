@@ -1,0 +1,392 @@
+﻿{
+  "week": {
+    "even": {
+      "pn": {
+        "pr1": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr2": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr3": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr4": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr5": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr6": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        }
+      },
+      "vt": {
+        "pr1": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr2": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr3": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr4": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr5": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr6": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        }
+      },
+      "sr": {
+        "pr1": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr2": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr3": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr4": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr5": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr6": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        }
+      },
+      "ch": {
+	    "pr1": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr2": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr3": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr4": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr5": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr6": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        }
+      },
+      "pt": {
+        "pr1": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr2": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr3": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr4": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr5": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr6": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        }
+      },
+      "sb": {
+        "pr1": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr2": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr3": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr4": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr5": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr6": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        }
+      }
+    },
+    "odd": {
+      "pn": {
+        "pr1": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr2": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr3": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr4": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr5": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr6": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        }
+      },
+      "vt": {
+        "pr1": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr2": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr3": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr4": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr5": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr6": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        }
+      },
+      "sr": {
+        "pr1": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr2": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr3": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr4": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr5": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr6": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        }
+      },
+      "ch": {
+        "pr1": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr2": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr3": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr4": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr5": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr6": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        }
+      },
+      "pt": {
+        "pr1": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr2": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr3": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr4": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr5": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr6": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        }
+      },
+      "sb": {
+        "pr1": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr2": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr3": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr4": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr5": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        },
+        "pr6": {
+          "prnum": "",
+          "prname": "",
+          "prtime": ""
+        }
+      }
+    }
+  }
+}

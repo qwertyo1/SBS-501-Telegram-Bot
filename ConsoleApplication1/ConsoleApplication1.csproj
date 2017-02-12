@@ -54,6 +54,10 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AngleSharp, Version=0.9.9.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\packages\AngleSharp.0.9.9\lib\net45\AngleSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DarkSkyApi, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DarkSkyApi.3.0.0\lib\portable45-net45+win8+wp8+wpa81\DarkSkyApi.dll</HintPath>
       <Private>True</Private>
@@ -110,7 +114,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="VkNet, Version=1.21.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\VkNet.1.25.0\lib\net40\VkNet.dll</HintPath>
+      <HintPath>..\packages\VkNet.1.26.0\lib\net40\VkNet.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
